@@ -22,18 +22,18 @@ function Home() {
       <form>
         <h1>Cadastro de Usuários</h1>
 
-        <input type="text" name='nome' />
-        <input type="number" name='idade' />
-        <input type="email" name='email' />
+        <input placeholder="nome" type="text" name="nome" />
+        <input placeholder="idade" type="number" name="idade" />
+        <input placeholder="email" type="email" name="email" />
         <button type="button">Cadastrar</button>
       </form>
 
-      { users.map(user => (
-        <div key={user.id}>
+      {users.map(user => (
+        <div className="card" key={user.id}>
           <div>
-            <p>Nome: {user.name}</p>
-            <p>Idade: {user.age}</p>
-            <p>Email: {user.email}</p>
+            <p>Nome: <span>{user.name}</span></p>
+            <p>Idade: <span>{user.age}</span></p>
+            <p>Email: <span>{user.email}</span></p>
           </div>
 
           <button>
