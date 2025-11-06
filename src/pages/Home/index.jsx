@@ -1,20 +1,18 @@
+import { useEffect } from 'react';
 import './style.css'
+import api from '../../services/api';
 
 function Home() {
-  const users = [
-    {
-      id: 1,
-      name: 'João Silva',
-      age: 28,
-      email: 'joao.silva@example.com'
-    },
-    {
-      id: 2,
-      name: 'Maria Oliveira',
-      age: 34,
-      email: 'maria.oliveira@example.com'
-    }
-  ]
+  let users = []
+
+  async function getUsers() {
+    const { data } = await api.get('/usuarios');
+    users = data;
+  }
+
+  useEffect(() => {
+    getUsers();
+  });
 
   return (
 
